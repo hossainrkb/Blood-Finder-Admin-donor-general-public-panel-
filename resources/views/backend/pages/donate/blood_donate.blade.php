@@ -144,7 +144,7 @@
                                             </td>
                                             <td colspan="">
                                                 <b>
-                                                    <select class="form-control" name="d_id" required="">
+                                                    <select class="form-control chosen" name="d_id" required="" >
                                                         <option value="">Select donor!</option>
                                                         @foreach ($donor_list as $donor)
                                                         <option value="{{$donor->id}}">{{$donor->name}} |
@@ -184,6 +184,14 @@
                 </div>
             </div>
         </div>
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+<script type="text/javascript">
+      $(".chosen").chosen();
+</script>
+
         <!-- End Form Elements -->
     </div>
 </div>

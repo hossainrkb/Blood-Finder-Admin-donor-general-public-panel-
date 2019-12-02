@@ -1578,61 +1578,7 @@ $s_bg = "";
     </table>
  
   </form>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header text-center"><b>TOP RATED DONOR'S</b></div>
-      <div class="card-body">
-         @php 
-   $detail_donor= App\Models\Donor::orderBy('id')->get();
-    
-  @endphp
-      <div class="row">
-   @foreach ($detail_donor as $d_dnr)
-   @if($d_dnr->hmt_d_blood >3)
-   
-  @php
-       $donor_log =  App\Models\Blood_donate_log::orderBy('id')->where('d_id', $d_dnr->id )->first();
-  @endphp
-
-      <div class="col-md-3" style="border-bottom: 1px solid gray">
-       <div class="" style="width:150px;height: 360px">     
-         @if($d_dnr->d_image)
-          <img class="card-img-top" style="width:100%; border-radius: 50%;"  src="{{asset('img/donors/'. $d_dnr->d_image ) }}">
-      
-      @else
-          <img class="card-img-top" src="{{asset('img/mango_prople.png' ) }}" style="width:100%" />
-      @endif
-       <div class="card-body ">
-      <h4 class="card-title text-center">{{$d_dnr->name  }}</h4>
-       @php  $bg = App\Models\Blood_group::where('id', $d_dnr->blood_group_id)->first() @endphp
-      <p class="card-text badge btn-outline-danger">Blood group: {{ $bg->bg_name }}</p>
-      <p class="card-text badge btn-outline-primary">Email: {{$d_dnr->email  }}</p>
-      <p class="card-text badge btn-outline-info">Phone: {{$d_dnr->phone  }}</p>
-      <p class="card-text badge btn-outline-info">Category: 
-
-        @if($d_dnr->hmt_d_blood >4)
-               <span class="badge" style="color: cyan   "> <i class="fas fa-trophy fa-2x"></i> Platinum</span>
-                @else
-               <span class="badge"  style="color: #FFDF00   "> <i class="fas fa-trophy fa-2x"></i> Gold</span>
-                @endif 
-      </p>
-     
-    </div>
-       
   
-   
-  </div>
-    </div>
-    
-    
-    @endif
-     @endforeach
-     </div>
-      </div>
-      </div>
-    </div>
-  </div>
   @endif
 
 </div>
